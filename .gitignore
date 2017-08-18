@@ -59,6 +59,9 @@ fabric.properties
 # .idea/misc.xml
 # *.ipr
 
+# ant build
+.idea/##/ant.xml
+
 # Sonarlint plugin
 .idea/sonarlint
 

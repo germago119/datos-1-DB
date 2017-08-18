@@ -21,3 +21,14 @@ public class Main extends Application {
         launch(args);
     }
 }
+
+
+// todo close request
+// todo switch scenes
+// todo alertbox
+// todo usar lambdas "->"
+
+
+
+
+
