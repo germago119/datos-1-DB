@@ -1,4 +1,4 @@
-package sample;
+package LinkedDB;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,8 +10,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
+        Parent root = FXMLLoader.load(getClass().getResource("LinkedDB.fxml"));
+        primaryStage.setTitle("LinkedDB");
         primaryStage.setScene(new Scene(root, 1200, 700));
         primaryStage.show();
     }
@@ -27,6 +27,9 @@ public class Main extends Application {
 // todo alertbox
 // todo usar lambdas "->"
 // todo snackbar for finish saving
+// todo error dialogs in controller
+// todo treeview
+// todo use gson
 
 
 

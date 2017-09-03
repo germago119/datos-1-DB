@@ -1,4 +1,4 @@
-package sample;
+package LinkedDB;
 
 import javafx.fxml.Initializable;
 
