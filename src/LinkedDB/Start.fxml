@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="950.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <ImageView fx:id="LogoImg" fitHeight="130.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@Logo.png" />
+               </image>
+            </ImageView>
+            <Region layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="20.0">
+         <children>
+            <Label fx:id="WelcomeLabel" alignment="CENTER" contentDisplay="CENTER" style="-fx-background-color: #ffffff;" text="Bienvenido a LinkedDB, por favor digite un nombre para su Store." textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Roboto Slab Regular" size="30.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox>
+         <children>
+            <Region layoutX="195.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
+            <Label fx:id="Namelabel" text="Nombre: ">
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Roboto Slab Regular" size="24.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="NameText" labelFloat="true">
+               <HBox.margin>
+                  <Insets left="5.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Roboto Slab Regular" size="18.0" />
+               </font>
+            </JFXTextField>
+            <Region HBox.hgrow="ALWAYS" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Region HBox.hgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox>
+         <children>
+            <JFXTreeTableView fx:id="WelcomeTable" editable="true" style="-fx-background-color: #ffffff;" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </JFXTreeTableView>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <JFXButton buttonType="RAISED" />
+            <JFXButton buttonType="RAISED" />
+            <JFXButton buttonType="RAISED">
+               <graphic>
+                  <JFXTextField />
+               </graphic>
+            </JFXButton>
+            <JFXComboBox labelFloat="true" promptText="Tipo" />
+            <JFXComboBox labelFloat="true" layoutX="187.0" layoutY="10.0" promptText="Requiered" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
