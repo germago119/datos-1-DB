@@ -10,9 +10,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("LinkedDB.fxml"));
+        Parent start = FXMLLoader.load(getClass().getResource("Start.fxml"));
         primaryStage.setTitle("LinkedDB");
-        primaryStage.setScene(new Scene(root, 1200, 700));
+        primaryStage.setScene(new Scene(start, 950, 800));
         primaryStage.show();
     }
 
