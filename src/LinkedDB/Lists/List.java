@@ -15,4 +15,6 @@ public interface List <T extends Comparable<T>> {
     public T iterator(int i);
 
     public int length();
+
+    public boolean isEmpty();
 }

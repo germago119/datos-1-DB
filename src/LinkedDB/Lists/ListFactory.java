@@ -7,6 +7,8 @@ public class ListFactory {
             return new ListSimple<>(name);
         }else if (type.equals(ListTypes.Double)){
             return new ListDouble<>(name);
+        }else if(type.equals(ListTypes.Circular)){
+            return new ListCircular<>(name);
         }else{
             return null;
         }

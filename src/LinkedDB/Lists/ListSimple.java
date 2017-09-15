@@ -94,5 +94,11 @@ public class ListSimple<T extends Comparable<T>> implements List<T> {
     public int length() {
         return this.length;
     }
+
+    @Override
+    public boolean isEmpty(){
+        return this.head == null;
+    }
+
 }
 
