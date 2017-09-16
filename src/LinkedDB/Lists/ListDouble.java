@@ -101,4 +101,9 @@ public class ListDouble<T extends Comparable<T>> implements List<T> {
     public int length() {
         return this.length;
     }
+
+    @Override
+    public void deleteAll() {
+        this.head = null;
+    }
 }

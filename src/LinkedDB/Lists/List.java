@@ -17,4 +17,6 @@ public interface List <T extends Comparable<T>> {
     public int length();
 
     public boolean isEmpty();
+
+    public void deleteAll();
 }

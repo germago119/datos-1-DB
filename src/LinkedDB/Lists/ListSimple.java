@@ -100,5 +100,9 @@ public class ListSimple<T extends Comparable<T>> implements List<T> {
         return this.head == null;
     }
 
+    @Override
+    public void deleteAll() {
+        this.head = null;
+    }
 }
 

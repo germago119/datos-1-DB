@@ -21,20 +21,20 @@ public class ListCircular<T extends Comparable<T>> implements List<T>{
     @Override
     public void print() {
         NodeDouble<T> temp = this.head;
-        Boolean headFlag = false;
-        while ((temp != this.head || !headFlag) && temp != null){
-            if (!headFlag){
-                headFlag = true;
-            }
+        if (isEmpty()) {
+            return;
+        }
+        do {
             System.out.println(temp.getValue());
             temp = temp.getNext();
         }
-
+        while (temp != this.head);
     }
+
 
     @Override
     public void append(T value) {
-        if (this.head == null){
+        if (isEmpty()) {
             this.head = new NodeDouble<>(value);
             this.head.setNext(this.head);
             this.head.setPrev(this.head);
@@ -49,30 +49,31 @@ public class ListCircular<T extends Comparable<T>> implements List<T>{
 
     }
 
+
     @Override
     public NodeDouble<T> search(T value) {
         NodeDouble<T> temp = this.head;
-        Boolean headFlag = false;
-        while ((temp != this.head || !headFlag) && temp != null){
-            if (!headFlag){
-                headFlag = true;
-            }
+        if (isEmpty()) {
+            return null;
+        }
+        do {
             if (temp.getValue().equals(value)){
                 return temp;
             }
             temp = temp.getNext();
         }
+        while (temp != this.head);
+
         return null;
     }
 
     @Override
     public void delete(T value){
         NodeDouble<T> temp = this.head;
-        Boolean headFlag = false;
-        while ((temp != this.head || !headFlag) && temp != null){
-            if (!headFlag){
-                headFlag = true;
-            }
+        if (isEmpty()) {
+            return;
+        }
+        do {
             if (temp.getValue().equals(value)){
                 if (temp == this.head){
                     if (this.head.getNext() == this.head){
@@ -81,9 +82,10 @@ public class ListCircular<T extends Comparable<T>> implements List<T>{
                     }
                     else{
                         this.head.getPrev().setNext(this.head.getNext());
-                        NodeDouble<T> newHead = this.head.getNext();
+                        NodeDouble<T> newhead = this.head.getNext();
                         this.head.getNext().setPrev(this.head.getPrev());
-                        this.head = newHead;
+                        this.head = newhead;
+
                     }
                 } else{
                     temp.getPrev().setNext(temp.getNext());
@@ -91,7 +93,7 @@ public class ListCircular<T extends Comparable<T>> implements List<T>{
                 }
             }
             temp = temp.getNext();
-        }
+        } while (temp != this.head);
     }
 
     @Override
@@ -103,6 +105,11 @@ public class ListCircular<T extends Comparable<T>> implements List<T>{
         return this.head == null;
     }
 
+    @Override
+    public void deleteAll() {
+        this.head = null;
+    }
+    
     @Override
     public T iterator(int i) {
         if (i > length) {

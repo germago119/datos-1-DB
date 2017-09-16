@@ -1,38 +1,25 @@
-package LinkedDB;
+package LinkedDB.JSONFILES;
 
-import com.google.gson.Gson;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import LinkedDB.UI.Controller;
 
 
-public class Store {
+public class Metadata {
 
     private String atributo;
     private String value;
     private String nombre;
     private String defecto;
     private String requiered;
-    private String StoreName;
+    private String storeName;
 
-    final String currentdirectory = System.getProperty("user.dir");
 
-    Gson gson = new Gson();
-
-    Path path = Paths.get(currentdirectory);
-
-    Boolean X = Files.exists(path);
-
-    public Store(String atributo, String value, String nombre, String defecto, String required){
+    public Metadata(String atributo, String value, String nombre, String defecto, String required, String storeName) {
         this.atributo = atributo;
         this.value = value;
         this.nombre = nombre;
         this.defecto = defecto;
         this.requiered = required;
-    }
-
-    public String getCurrentdirectory() {
-        return currentdirectory;
+        this.storeName = storeName;
     }
 
     public String getAtributo() {
@@ -75,8 +62,15 @@ public class Store {
         this.requiered = requiered;
     }
 
+    public String getStoreName() {
+        return storeName;
+    }
 
-    private String Validar(){ //todo REVISAR RETURN
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+
+    public String Validar() { //todo REVISAR RETURN
         try{
             switch(getAtributo()){
                 case "int": Integer.parseInt(getValue());
@@ -84,7 +78,7 @@ public class Store {
 
                 case "float": Float.parseFloat(getValue());
                 break;
-                //case "fecha" PREGUNTAR
+                //todo case "fecha" PREGUNTAR
                 default: Controller.errordialog();
 
             }
@@ -95,13 +89,22 @@ public class Store {
         return getValue();
     }
 
-    public static Store stringtostore(String value) {
-        //String = nombre-valor-atributo-defecto-requiered
+    public static Metadata stringtostore(String value) {
+        //String = nombre-valor-atributo-defecto-requiered-storename
         String[] array = value.split("-", 0);
-        return new Store(array[0], array[1], array[2], array[3], array[4]);
+        return new Metadata(array[0], array[1], array[2], array[3], array[4], array[5]);
 
     }
-//    public static String storetostring(Store store){
-//        return
-//    }
+
+    public String storetostring(Metadata metadata) {
+        String storeString = "";
+        storeString += metadata.getNombre();
+        storeString += ("-" + metadata.getValue());
+        storeString += ("-" + metadata.getAtributo());
+        storeString += ("-" + metadata.getDefecto());
+        storeString += ("-" + metadata.getRequiered());
+        storeString += ("-" + metadata.getStoreName());
+
+        return storeString;
+    }
 }

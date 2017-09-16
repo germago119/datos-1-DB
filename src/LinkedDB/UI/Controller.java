@@ -1,4 +1,4 @@
-package LinkedDB;
+package LinkedDB.UI;
 
 import javafx.fxml.Initializable;
 import java.net.URL;

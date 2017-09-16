@@ -1,4 +1,4 @@
-package LinkedDB;
+package LinkedDB.UI;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,7 +13,7 @@ public class StartController implements Initializable{
 
     }
 
-    Parent root = FXMLLoader.load(getClass().getResource("LinkedDB.fxml"));
+    //Parent root = FXMLLoader.load(getClass().getResource("LinkedDB.fxml"));
 
 
 }
