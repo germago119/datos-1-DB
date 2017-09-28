@@ -1,35 +1,38 @@
 package LinkedDB.Lists;
 
+/**
+ * This class defines the implementation of a Double Linked List.
+ *
+ * @param <T>
+ * @author Roger Valderrama
+ */
+
+
 public class ListDouble<T extends Comparable<T>> implements List<T> {
 
     private String name;
     private NodeDouble<T> head;
-    private int length;
 
     public ListDouble(String name) {
         setName(name);
     }
 
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public Node<T> getHead(){
-        return this.head;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public void append(T value) {
-        if (this.head == null){
+        if (this.head == null) {
             this.head = new NodeDouble<>(value);
             return;
         }
         NodeDouble<T> temp = this.head;
-        while (temp.hasNext()){
+        while (temp.hasNext()) {
             temp = temp.getNext();
         }
         NodeDouble<T> temp2 = new NodeDouble<>(value);
@@ -38,26 +41,29 @@ public class ListDouble<T extends Comparable<T>> implements List<T> {
     }
 
     @Override
-    public NodeDouble<T> search(T value) {
-        NodeDouble<T> temp = this.head;
-        while(temp.hasNext()){
-            if(temp.getValue().equals(value)){
-                break;
-            }
-            temp = temp.getNext();
+    public int length() {
+        NodeDouble<T> current = head;
+        int result = 0;
+        while (current != null) {
+            result++;
+            current = current.getNext();
         }
-        return temp;
+        return result;
+    }
+
+    @Override
+    public void deleteAll() {
+        this.head = null;
     }
 
     @Override
     public void delete(T value) {
         NodeDouble<T> temp = this.head;
-        while(temp != null){
-            if(temp.getValue().equals(value)){
-                if (temp == this.head){
+        while (temp != null) {
+            if (temp.getValue().equals(value)) {
+                if (temp == this.head) {
                     this.head = temp.getNext();
-                }
-                else{
+                } else {
                     temp.getPrev().setNext(temp.getNext());
                 }
                 break;
@@ -68,42 +74,26 @@ public class ListDouble<T extends Comparable<T>> implements List<T> {
 
     }
 
+
     @Override
-    public void print() {
-        NodeDouble<T> temp = this.head;
-        while (temp != null){
-            System.out.println(temp.getValue());
-            temp = temp.getNext();
-        }
-    }
-    
-    @Override
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return this.head == null;
     }
 
+
+    public Node<T> getHead() {
+        return this.head;
+    }
+
     @Override
-    public T iterator(int i) {
-        if (i > length) {
-            return null;
-        } else {
-            int cont = 0;
-            NodeDouble<T> actual = this.head;
-            while (cont < i) {
-                actual = actual.getNext();
-                cont++;
+    public NodeDouble<T> search(T value) {
+        NodeDouble<T> temp = this.head;
+        while (temp.hasNext()) {
+            if (temp.getValue().equals(value)) {
+                break;
             }
-            return actual.getValue();
+            temp = temp.getNext();
         }
-    }
-
-    @Override
-    public int length() {
-        return this.length;
-    }
-
-    @Override
-    public void deleteAll() {
-        this.head = null;
+        return temp;
     }
 }

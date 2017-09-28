@@ -1,9 +1,13 @@
 /* VARIABLE DEFINITIONS: Only these 4 variables have to be adjusted, the rest is copy-paste */
 {
-    -fx-my-menu-color: #272822;                  /* Change according to your needs */
-    -fx-my-menu-color-highlighted: #6d6d6d;      /* Change according to your needs */
-    -fx-my-menu-font-color: #FFFFFF;             /* Change according to your needs */
-    -fx-my-menu-font-color-highlighted: #FFFFFF; /* Change according to your needs */
+    -fx-my-menu-color: #272822
+; /* Change according to your needs */
+    -fx-my-menu-color-highlighted: #6d6d6d
+; /* Change according to your needs */
+    -fx-my-menu-font-color: #FFFFFF
+; /* Change according to your needs */
+    -fx-my-menu-font-color-highlighted: #FFFFFF
+; /* Change according to your needs */
 }
 
 /* MENU BAR + Top-level MENU BUTTONS */

@@ -1,6 +1,6 @@
 package LinkedDB.Lists;
 
-class NodeSimple <T extends Comparable<T>> extends Node<T>{
+public class NodeSimple<T extends Comparable<T>> extends Node<T> {
 
     private NodeSimple<T> next;
     private T value;
@@ -26,7 +26,7 @@ class NodeSimple <T extends Comparable<T>> extends Node<T>{
         this.value = value;
     }
 
-    public boolean hasNext(){
+    public boolean hasNext() {
         return this.next != null;
     }
 }

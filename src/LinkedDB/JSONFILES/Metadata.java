@@ -1,110 +1,157 @@
 package LinkedDB.JSONFILES;
 
-import LinkedDB.UI.Controller;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 
-public class Metadata {
+public class Metadata implements Comparable<Metadata> {
 
-    private String atributo;
-    private String value;
-    private String nombre;
-    private String defecto;
-    private String requiered;
-    private String storeName;
+    private String data;
+    private String type;
+    private Boolean primary;
+    private Boolean required;
+    private String defaultValue;
+    private String foreignStore = "";
+    private String foreignDocument = "";
 
-
-    public Metadata(String atributo, String value, String nombre, String defecto, String required, String storeName) {
-        this.atributo = atributo;
-        this.value = value;
-        this.nombre = nombre;
-        this.defecto = defecto;
-        this.requiered = required;
-        this.storeName = storeName;
+    public Metadata(boolean primary, String data, String datatype, boolean required,
+                    String defaultValue, String foreignStore, String foreignDocument) {
+        this.data = data;
+        this.type = datatype;
+        this.primary = primary;
+        this.required = required;
+        this.defaultValue = defaultValue;
+        this.foreignStore = foreignStore;
+        this.foreignDocument = foreignDocument;
     }
 
-    public String getAtributo() {
-        return atributo;
+    public Metadata() {
     }
 
-    public void setAtributo(String atributo) {
-        this.atributo = atributo;
+    public String getData() {
+        return data;
     }
 
-    public String getValue() {
-        return value;
+    public void setData(String data) {
+        this.data = data;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public String getType() {
+        return type;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public Boolean getRequired() {
+        return required;
     }
 
-    public String getDefecto() {
-        return defecto;
+    public void setRequired(Boolean required) {
+        this.required = required;
     }
 
-    public void setDefecto(String defecto) {
-        this.defecto = defecto;
+    public String getDefaultValue() {
+        return defaultValue;
     }
 
-    public String getRequiered() {
-        return requiered;
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
     }
 
-    public void setRequiered(String requiered) {
-        this.requiered = requiered;
-    }
-
-    public String getStoreName() {
-        return storeName;
-    }
-
-    public void setStoreName(String storeName) {
-        this.storeName = storeName;
-    }
-
-    public String Validar() { //todo REVISAR RETURN
-        try{
-            switch(getAtributo()){
-                case "int": Integer.parseInt(getValue());
-                break;
-
-                case "float": Float.parseFloat(getValue());
-                break;
-                //todo case "fecha" PREGUNTAR
-                default: Controller.errordialog();
-
-            }
-
-        }catch(Exception e){
-            System.out.println("ERROR EN VALIDACION");
+    public Boolean getPrimary() {
+        if (primary == null) {
+            return false;
         }
-        return getValue();
+        return primary;
     }
 
-    public static Metadata stringtostore(String value) {
-        //String = nombre-valor-atributo-defecto-requiered-storename
-        String[] array = value.split("-", 0);
-        return new Metadata(array[0], array[1], array[2], array[3], array[4], array[5]);
+    public void setPrimary(Boolean primary) {
+        this.primary = primary;
+    }
+
+    public String getForeignStore() {
+        return foreignStore;
+    }
+
+    public void setForeignStore(String foreignStore) {
+        this.foreignStore = foreignStore;
+    }
+
+    public String getForeignDocument() {
+        return foreignDocument;
+    }
+
+    public void setForeignDocument(String foreignDocument) {
+        this.foreignDocument = foreignDocument;
+    }
+
+    @Override
+    public int compareTo(Metadata comparableData) {
+        return 0;
+    }
+
+    @SuppressWarnings("unchecked")
+    public JSONObject getStructureJSON(JSONObject object) {
+        JSONArray foreignArray = new JSONArray();
+        JSONArray array = new JSONArray();
+        foreignArray.add(foreignStore);
+        foreignArray.add(foreignDocument);
+        array.add(this.primary);
+        array.add(this.type);
+        array.add(this.required);
+        array.add(this.defaultValue);
+        array.add(foreignArray);
+        object.put(data, array);
+        return object;
+    }
+
+    public void readAtributeJSON(File document) {
+        try (JsonReader fileReader = new JsonReader(new FileReader(document))) {
+            JsonToken token;
+            fileReader.beginObject();
+            while (fileReader.hasNext()) {
+                token = fileReader.peek();
+                if (token.equals(JsonToken.END_OBJECT)) {
+                    fileReader.endObject();
+                    break;
+                } else if (token.equals(JsonToken.NAME)) {
+                    setData(fileReader.nextName());
+                    try {
+                        fileReader.beginArray();
+                        setPrimary(fileReader.nextBoolean());
+                        setType(fileReader.nextString());
+                        setRequired(fileReader.nextBoolean());
+                        setDefaultValue(fileReader.nextString());
+                        fileReader.beginArray();
+                        setForeignStore(fileReader.nextString());
+                        setForeignDocument(fileReader.nextString());
+                        fileReader.endArray();
+                        fileReader.endArray();
+
+                    } catch (Exception exception) {
+                        System.out.println("ERROR Metadata - readAtributeJSON BADStructure");
+                    }
+                } else {
+                    fileReader.skipValue();
+                }
+                fileReader.close();
+            }
+        } catch (FileNotFoundException exception) {
+            System.out.println("ERROR Metadata - readAtributeJSON 404");
+        } catch (IOException exception) {
+            System.out.println("ERROR Metadata - readAtributeJSON");
+        }
 
     }
 
-    public String storetostring(Metadata metadata) {
-        String storeString = "";
-        storeString += metadata.getNombre();
-        storeString += ("-" + metadata.getValue());
-        storeString += ("-" + metadata.getAtributo());
-        storeString += ("-" + metadata.getDefecto());
-        storeString += ("-" + metadata.getRequiered());
-        storeString += ("-" + metadata.getStoreName());
 
-        return storeString;
-    }
 }

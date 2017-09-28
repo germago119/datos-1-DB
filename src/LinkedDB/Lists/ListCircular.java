@@ -1,36 +1,28 @@
 package LinkedDB.Lists;
 
-public class ListCircular<T extends Comparable<T>> implements List<T>{
-    
-    private String Name;
+/**
+ * This class defines the implementation of a Double Circular List.
+ *
+ * @param <T>
+ * @author Roger Valderrama
+ */
+
+public class ListCircular<T extends Comparable<T>> implements List<T> {
+
+    private String name;
     private NodeDouble<T> head;
-    private int length;
 
     public ListCircular(String name) {
         setName(name);
     }
 
-    public void setName(String name){
-        this.Name = name;
-    }
-    public String getName(){
-        return this.Name;
+    public String getName() {
+        return this.name;
     }
 
-
-    @Override
-    public void print() {
-        NodeDouble<T> temp = this.head;
-        if (isEmpty()) {
-            return;
-        }
-        do {
-            System.out.println(temp.getValue());
-            temp = temp.getNext();
-        }
-        while (temp != this.head);
+    public void setName(String name) {
+        this.name = name;
     }
-
 
     @Override
     public void append(T value) {
@@ -49,45 +41,46 @@ public class ListCircular<T extends Comparable<T>> implements List<T>{
 
     }
 
-
     @Override
-    public NodeDouble<T> search(T value) {
-        NodeDouble<T> temp = this.head;
+    public int length() {
+        NodeDouble<T> current = head;
+        int result = 0;
         if (isEmpty()) {
-            return null;
+            return result;
         }
         do {
-            if (temp.getValue().equals(value)){
-                return temp;
-            }
-            temp = temp.getNext();
-        }
-        while (temp != this.head);
+            result++;
+            current = current.getNext();
+        } while (current != null);
 
-        return null;
+        return result;
     }
 
     @Override
-    public void delete(T value){
+    public void deleteAll() {
+        this.head = null;
+    }
+
+    @Override
+    public void delete(T value) {
         NodeDouble<T> temp = this.head;
         if (isEmpty()) {
             return;
         }
         do {
-            if (temp.getValue().equals(value)){
-                if (temp == this.head){
-                    if (this.head.getNext() == this.head){
+            if (temp.getValue().equals(value)) {
+                if (temp == this.head) {
+                    if (this.head.getNext() == this.head) {
                         this.head = null;
                         break;
-                    }
-                    else{
+                    } else {
                         this.head.getPrev().setNext(this.head.getNext());
-                        NodeDouble<T> newhead = this.head.getNext();
+                        NodeDouble<T> newHead = this.head.getNext();
                         this.head.getNext().setPrev(this.head.getPrev());
-                        this.head = newhead;
+                        this.head = newHead;
 
                     }
-                } else{
+                } else {
                     temp.getPrev().setNext(temp.getNext());
                     temp.getNext().setPrev(temp.getPrev());
                 }
@@ -97,38 +90,33 @@ public class ListCircular<T extends Comparable<T>> implements List<T>{
     }
 
     @Override
-    public NodeDouble<T> getHead() {
-        return this.head;
-    }
-    @Override
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return this.head == null;
     }
 
+
     @Override
-    public void deleteAll() {
-        this.head = null;
-    }
-    
-    @Override
-    public T iterator(int i) {
-        if (i > length) {
-            return null;
-        } else {
-            int conteo = 0;
-            NodeDouble<T> temp = this.head;
-            while (conteo < i) {
-                temp = temp.getNext();
-                conteo++;
-            }
-            System.out.println(temp.getValue());
-            return temp.getValue();
-        }
+    public NodeDouble<T> getHead() {
+        return this.head;
     }
 
     @Override
-    public int length() {
-        return this.length;
+    public NodeDouble<T> search(T value) {
+        NodeDouble<T> temp = this.head;
+        if (isEmpty()) {
+            return null;
+        }
+        do {
+            if (temp.getValue().equals(value)) {
+                return temp;
+            }
+            temp = temp.getNext();
+        }
+        while (temp != this.head);
+
+        return null;
     }
+
+
 }
 

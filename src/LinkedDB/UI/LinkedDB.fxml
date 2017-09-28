@@ -1,236 +1,239 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import com.jfoenix.controls.JFXTreeTableView?>
-<?import com.jfoenix.controls.JFXTreeView?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #272822;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <VBox style="-fx-background-color: #272822;" BorderPane.alignment="CENTER">
-         <children>
-            <HBox spacing="10.0" style="-fx-background-color: #272822;">
-               <children>
-                  <MenuBar stylesheets="@MenuStyle.css">
-                    <menus>
-                      <Menu mnemonicParsing="false" text="File">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="Close" />
-                        </items>
-                      </Menu>
-                      <Menu mnemonicParsing="false" text="Edit">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="Delete" />
-                        </items>
-                      </Menu>
-                      <Menu mnemonicParsing="false" text="Help">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="About" />
-                        </items>
-                      </Menu>
-                    </menus>
-                     <HBox.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="10.0" />
-                     </HBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </MenuBar>
-                  <Region HBox.hgrow="ALWAYS" />
-                  <HBox spacing="10.0" style="-fx-background-color: #272822;">
-                     <children>
-                        <JFXTextField fx:id="search_type_text" labelFloat="true" promptText="Tipo" style="-fx-background-color: #272822;" unFocusColor="WHITE">
-                           <font>
-                              <Font name="Roboto Slab Bold" size="14.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets bottom="4.0" left="4.0" right="4.0" top="10.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </JFXTextField>
-                        <JFXTextField fx:id="search_value_text" labelFloat="true" promptText="Valor" style="-fx-background-color: #272822;" unFocusColor="#fffafa">
-                           <font>
-                              <Font name="Roboto Slab Bold" size="14.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets bottom="4.0" left="4.0" right="4.0" top="10.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </JFXTextField>
-                        <JFXButton fx:id="search_button" buttonType="RAISED" style="-fx-background-color: #0031ca;" text="Buscar" textFill="WHITE">
-                           <font>
-                              <Font name="Roboto Slab Bold" size="14.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets bottom="4.0" left="4.0" right="4.0" top="10.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #272822;"
+            xmlns="http://javafx.com/javafx/8.0.111">
+    <top>
+        <VBox style="-fx-background-color: #272822;" BorderPane.alignment="CENTER">
+            <children>
+                <HBox spacing="10.0" style="-fx-background-color: #272822;">
+                    <children>
+                        <MenuBar stylesheets="@MenuStyle.css">
+                            <menus>
+                                <Menu mnemonicParsing="false" text="File">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Close"/>
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Edit">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Delete"/>
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Help">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="About"/>
+                                    </items>
+                                </Menu>
+                            </menus>
+                            <HBox.margin>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="10.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </padding>
+                        </MenuBar>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <HBox spacing="10.0" style="-fx-background-color: #272822;">
+                            <children>
+                                <JFXTextField fx:id="search_type_text" labelFloat="true" promptText="Tipo"
+                                              style="-fx-background-color: #272822;" unFocusColor="WHITE">
+                                    <font>
+                                        <Font name="Roboto Slab Bold" size="14.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="10.0"/>
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </padding>
+                                </JFXTextField>
+                                <JFXTextField fx:id="search_value_text" labelFloat="true" promptText="Valor"
+                                              style="-fx-background-color: #272822;" unFocusColor="#fffafa">
+                                    <font>
+                                        <Font name="Roboto Slab Bold" size="14.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="10.0"/>
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </padding>
+                                </JFXTextField>
+                                <JFXButton fx:id="search_button" buttonType="RAISED"
+                                           style="-fx-background-color: #0031ca;" text="Buscar" textFill="WHITE">
+                                    <font>
+                                        <Font name="Roboto Slab Bold" size="14.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="10.0"/>
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </padding>
+                                </JFXButton>
+                                <JFXButton fx:id="search_delete_button" buttonType="RAISED"
+                                           style="-fx-background-color: #f50057;" text="Buscar y eliminar"
+                                           textFill="WHITE">
+                                    <font>
+                                        <Font name="Roboto Slab Bold" size="14.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets bottom="4.0" left="4.0" right="4.0" top="10.0"/>
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </padding>
+                                </JFXButton>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </padding>
+                        </HBox>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <JFXButton fx:id="commit_button" buttonType="RAISED" ripplerFill="#872020"
+                                   style="-fx-background-color: #009624;" text="Commit" textFill="WHITE">
+                            <HBox.margin>
+                                <Insets bottom="4.0" left="4.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                            </padding>
+                            <font>
+                                <Font name="Roboto Slab Bold" size="18.0"/>
+                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="search_delete_button" buttonType="RAISED" style="-fx-background-color: #f50057;" text="Buscar y eliminar" textFill="WHITE">
-                           <font>
-                              <Font name="Roboto Slab Bold" size="14.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets bottom="4.0" left="4.0" right="4.0" top="10.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </JFXButton>
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </HBox>
-                  <Region HBox.hgrow="ALWAYS" />
-                  <JFXButton fx:id="commit_button" buttonType="RAISED" ripplerFill="#872020" style="-fx-background-color: #009624;" text="Commit" textFill="WHITE">
-                     <HBox.margin>
-                        <Insets bottom="4.0" left="4.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                     <font>
-                        <Font name="Roboto Slab Bold" size="18.0" />
-                     </font>
-                  </JFXButton>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </VBox.margin>
-            </HBox>
-         </children>
-      </VBox>
-   </top>
-   <left>
-      <JFXTreeView fx:id="tree_view" prefHeight="604.0" prefWidth="267.0" style="-fx-background-color: #272822;" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-         </BorderPane.margin>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </JFXTreeView>
-   </left>
-   <bottom>
-      <HBox spacing="10.0" style="-fx-background-color: #272822;" BorderPane.alignment="CENTER">
-         <children>
-            <Region HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Region>
-            <Label fx:id="Modificar_label" text="Modificar:" textFill="WHITE">
-               <HBox.margin>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Roboto Slab Bold" size="14.0" />
-               </font>
-            </Label>
-            <JFXTextField fx:id="edit_type_text" labelFloat="true" promptText="Tipo" unFocusColor="WHITE">
-               <HBox.margin>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Roboto Slab Bold" size="14.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField fx:id="edit_value_text" labelFloat="true" promptText="Valor" unFocusColor="WHITE">
-               <HBox.margin>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Roboto Slab Bold" size="14.0" />
-               </font>
-            </JFXTextField>
-            <JFXButton fx:id="add_button" buttonType="RAISED" style="-fx-background-color: #1faa00;" text="Agregar" textFill="WHITE">
-               <HBox.margin>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Roboto Slab Bold" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="delete_button" buttonType="RAISED" style="-fx-background-color: #d50000;" text="Eliminar" textFill="#fffdfd">
-               <HBox.margin>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Roboto Slab Bold" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="edit_button" buttonType="RAISED" style="-fx-background-color: #0091ea;" text="Editar" textFill="WHITE">
-               <HBox.margin>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Roboto Slab Bold" size="14.0" />
-               </font>
-            </JFXButton>
-            <Region HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Region>
-         </children>
-         <BorderPane.margin>
-            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-         </BorderPane.margin>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-      </HBox>
-   </bottom>
-   <center>
-      <JFXTreeTableView fx:id="table_view_JFX" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="9.0" left="4.0" right="10.0" top="9.0" />
-         </BorderPane.margin>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
-         </padding>
-      </JFXTreeTableView>
-   </center>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <left>
+        <JFXTreeView fx:id="tree_view" prefHeight="604.0" prefWidth="267.0" style="-fx-background-color: #272822;"
+                     BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+            </BorderPane.margin>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </padding>
+        </JFXTreeView>
+    </left>
+    <bottom>
+        <HBox spacing="10.0" style="-fx-background-color: #272822;" BorderPane.alignment="CENTER">
+            <children>
+                <Region HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                </Region>
+                <Label fx:id="Modificar_label" text="Modificar:" textFill="WHITE">
+                    <HBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Roboto Slab Bold" size="14.0"/>
+                    </font>
+                </Label>
+                <JFXTextField fx:id="edit_type_text" labelFloat="true" promptText="Tipo" unFocusColor="WHITE">
+                    <HBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Roboto Slab Bold" size="14.0"/>
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="edit_value_text" labelFloat="true" promptText="Valor" unFocusColor="WHITE">
+                    <HBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Roboto Slab Bold" size="14.0"/>
+                    </font>
+                </JFXTextField>
+                <JFXButton fx:id="add_button" buttonType="RAISED" style="-fx-background-color: #1faa00;" text="Agregar"
+                           textFill="WHITE">
+                    <HBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Roboto Slab Bold" size="14.0"/>
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="delete_button" buttonType="RAISED" style="-fx-background-color: #d50000;"
+                           text="Eliminar" textFill="#fffdfd">
+                    <HBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Roboto Slab Bold" size="14.0"/>
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="edit_button" buttonType="RAISED" style="-fx-background-color: #0091ea;" text="Editar"
+                           textFill="WHITE">
+                    <HBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Roboto Slab Bold" size="14.0"/>
+                    </font>
+                </JFXButton>
+                <Region HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                </Region>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+            </BorderPane.margin>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </HBox>
+    </bottom>
+    <center>
+        <JFXTreeTableView fx:id="table_view_JFX" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="9.0" left="4.0" right="10.0" top="9.0"/>
+            </BorderPane.margin>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="10.0" top="5.0"/>
+            </padding>
+        </JFXTreeTableView>
+    </center>
 </BorderPane>

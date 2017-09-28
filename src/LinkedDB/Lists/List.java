@@ -1,22 +1,70 @@
 package LinkedDB.Lists;
 
-public interface List <T extends Comparable<T>> {
+/**
+ * This interface sets the template for all the lists,
+ * regardless of their type.
+ *
+ * @param <T>
+ * @author Roger Valderrama
+ */
 
-    public void print();
+public interface List<T extends Comparable<T>> {
 
-    public void append(T value);
+    /**
+     * This method allows the list to add a certain value in it.
+     *
+     * @param value new value.
+     */
 
-    public Node<T> search(T value);
+    void append(T value);
 
-    public void delete(T value);
+    /**
+     * This method allows the list to delete all the content in it.
+     */
 
-    public Node<T> getHead();
+    void deleteAll();
 
-    public T iterator(int i);
+    /**
+     * This method allows the list to get the reference of the first {@link Node}
+     * .
+     *
+     * @return null if list is empty, referenced Node otherwise.
+     */
 
-    public int length();
+    Node<T> getHead();
 
-    public boolean isEmpty();
+    /**
+     * This method allows the list to know the number of elements inside.
+     *
+     * @return the quantity of nodes
+     */
 
-    public void deleteAll();
+    int length();
+
+    /**
+     * This method allows the list to search a certain value in it.
+     *
+     * @param value value to search.
+     * @return null if value is absent and a {@link Node} if present.
+     */
+
+    Node<T> search(T value);
+
+    /**
+     * This method allows the list to know if it is empty.
+     *
+     * @return booelan
+     */
+
+    boolean isEmpty();
+
+    /**
+     * This method allows the list to delete a certain value in it
+     *
+     * @param value value to delete
+     */
+
+    void delete(T value);
+
+
 }

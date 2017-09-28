@@ -1,15 +1,22 @@
 package LinkedDB.Lists;
 
+/**
+ * This class defines the implementation of a Double Node.
+ *
+ * @param <T>
+ * @author Roger Valderrama
+ */
+
 public class NodeDouble<T extends Comparable<T>> extends Node<T> {
 
-    private T value;
     private NodeDouble<T> next;
     private NodeDouble<T> prev;
+    private T value;
 
-    public NodeDouble(T value){
+    public NodeDouble(T value) {
         setValue(value);
-        setPrev(null);
         setNext(null);
+        setPrev(null);
     }
 
     public T getValue() {
@@ -36,7 +43,7 @@ public class NodeDouble<T extends Comparable<T>> extends Node<T> {
         this.prev = prev;
     }
 
-    public boolean hasNext(){
+    public boolean hasNext() {
         return this.next != null;
     }
 }
