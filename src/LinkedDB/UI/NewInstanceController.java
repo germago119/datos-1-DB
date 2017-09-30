@@ -33,6 +33,8 @@ public class NewInstanceController {
     private String document;
     private String store;
 
+    final String message = " is not instance of ";
+
     @FXML
     private VBox vBoxTextField;
 
@@ -55,7 +57,7 @@ public class NewInstanceController {
     @FXML
     private JFXButton createInstanceButton;
 
-    public static void hackTooltipStartTiming(Tooltip tooltip) {
+    private static void hackTooltipStartTiming(Tooltip tooltip) {
         try {
             Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
             fieldBehavior.setAccessible(true);
@@ -137,25 +139,25 @@ public class NewInstanceController {
                 try {
                     Integer.parseInt(value);
                 } catch (NumberFormatException exception) {
-                    return value + " is not instance of " + tempType.getText();
+                    return value + message + tempType.getText();
                 }
             } else if (tempType.getText().equalsIgnoreCase("Flotante")) {
                 try {
                     Float.parseFloat(value);
                 } catch (NumberFormatException exception) {
-                    return value + " is not instance of " + tempType.getText();
+                    return value + message + tempType.getText();
                 }
             } else if (tempType.getText().equalsIgnoreCase("Fecha-hora")) {
             } else if (tempType.getText().equalsIgnoreCase("Especial")) {
             } else {
                 try {
                     Integer.parseInt(value);
-                    return value + " is not instance of " + tempType.getText();
+                    return value + message + tempType.getText();
                 } catch (NumberFormatException exception) {
                 }
                 try {
                     Float.parseFloat(value);
-                    return value + " is not instance of " + tempType.getText();
+                    return value + message + tempType.getText();
                 } catch (NumberFormatException exception) {
                 }
             }
@@ -174,7 +176,7 @@ public class NewInstanceController {
         return false;
     }
 
-    public void initialize(List<Metadata> list) {
+    void initialize(List<Metadata> list) {
         Node<Metadata> currentNode = list.getHead();
 
         while (currentNode != null) {
@@ -213,7 +215,7 @@ public class NewInstanceController {
         this.store = store;
     }
 
-    public void setDocument() {
+    void setDocument() {
         documentLabel.setText(this.document + " Document, inside the " + this.store + " Store");
     }
 

@@ -30,7 +30,7 @@ public class DocumentDesignController {
 
     final String esp = "Especial";
 
-    ObservableList<String> types = FXCollections.observableArrayList("Cadena", "Entero", "Flotante", "Fecha-hora", esp);
+    private ObservableList<String> types = FXCollections.observableArrayList("Cadena", "Entero", "Flotante", "Fecha-hora", esp);
 
     @FXML
     private JFXCheckBox primaryKeyCheckBox;
@@ -128,7 +128,7 @@ public class DocumentDesignController {
             Alert unexistingStore = new Alert(AlertType.CONFIRMATION);
             unexistingStore.setTitle("WARNING");
             unexistingStore.setHeaderText("The store doesn't exist");
-            unexistingStore.setContentText("Do yout want to create the store?");
+            unexistingStore.setContentText("Do you want to create the store?");
             Optional<ButtonType> result = unexistingStore.showAndWait();
             if (result.get() == ButtonType.OK) {
                 ListUI.addStore(storeName);
@@ -139,7 +139,7 @@ public class DocumentDesignController {
             Alert unexistingDocument = new Alert(AlertType.CONFIRMATION);
             unexistingDocument.setTitle("WARNING");
             unexistingDocument.setHeaderText("The document doesn't exist");
-            unexistingDocument.setContentText("Do yout want to create the document?");
+            unexistingDocument.setContentText("Do you want to create the document?");
             Optional<ButtonType> result = unexistingDocument.showAndWait();
             if (result.get() == ButtonType.OK) {
                 store.appendDocument(new JSONDocument(docName));
@@ -158,8 +158,8 @@ public class DocumentDesignController {
         } else if (foreignCheck.isSelected() && !typeChoiceBox.getValue().equalsIgnoreCase("Especial")) {
             Alert wrongType = new Alert(AlertType.WARNING);
             wrongType.setTitle("WARNING");
-            wrongType.setHeaderText("Wrong Type Of Atribute");
-            wrongType.setContentText("Atribute's  type must be \"Especial\" in order to add a foreign value to it");
+            wrongType.setHeaderText("Wrong Type Of Attribute");
+            wrongType.setContentText("Attribute's  type must be \"Especial\" in order to add a foreign value to it");
             wrongType.showAndWait();
 
         } else if (foreignCheck.isSelected() && (ListUI.findStore(foreignStore.getText()) == null || ListUI.findDocument(foreignDocument.getText(),
@@ -178,14 +178,14 @@ public class DocumentDesignController {
         } else if (ListUI.findDocument(docName, storeName).findAttribute(attributeName.getText()) != null) {
             Alert invalidName = new Alert(AlertType.WARNING);
             invalidName.setTitle("WARNING");
-            invalidName.setHeaderText("Already existing atribute's name");
-            invalidName.setContentText("Please enter a diferent name for your atribute");
+            invalidName.setHeaderText("Already existing attribute's name");
+            invalidName.setContentText("Please enter a different name for your attribute");
             invalidName.showAndWait();
         } else if (attributeName.getText().equalsIgnoreCase("$REFERENCES$")) {
             Alert reserved = new Alert(AlertType.WARNING);
             reserved.setTitle("WARNING");
             reserved.setHeaderText("Reserved Value");
-            reserved.setContentText("$REFERENCE$ is a reserved key, please change the atribute's name");
+            reserved.setContentText("$REFERENCE$ is a reserved key, please change the attribute's name");
             reserved.showAndWait();
         } else {
             document.setAtributes(primaryKeyCheckBox.isSelected(), attributeName.getText(), typeChoiceBox.getValue(), defaultValue.isDisable(), defaultValue.getText(),

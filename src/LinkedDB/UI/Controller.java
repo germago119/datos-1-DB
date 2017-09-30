@@ -229,7 +229,7 @@ public class Controller {
         });
     }
 
-    public void loadTable(JSONDocument document, ObservableList<JSONInstance> elements) {
+    void loadTable(JSONDocument document, ObservableList<JSONInstance> elements) {
         Node<String> columns = document.getAttributesNames().getHead();
         tableView.getColumns().clear();
         tableView.getItems().clear();
@@ -270,11 +270,11 @@ public class Controller {
         tableView.getItems().addAll(elements);
     }
 
-    public void setDataLabel(String data) {
+    void setDataLabel(String data) {
         showDataLabel.setText(data);
     }
 
-    public void storeDocumentDialog(String action) throws IOException {
+    private void storeDocumentDialog(String action) throws IOException {
         JSONStore store = null;
         JSONDocument document = null;
         Dialog<Pair<String, String>> storeAndDocument = new Dialog<>();
@@ -369,7 +369,7 @@ public class Controller {
         }
     }
 
-    public void makeStoreBranch(List<JSONStore> list, TreeItem<String> parent) {
+    private void makeStoreBranch(List<JSONStore> list, TreeItem<String> parent) {
         Node<JSONStore> current = list.getHead();
         do {
             TreeStoreNode item = new TreeStoreNode(current.getValue().getName());
@@ -381,7 +381,7 @@ public class Controller {
         } while (current != list.getHead());
     }
 
-    public void makeDocumentBranch(List<JSONDocument> list, TreeItem<String> parent) {
+    private void makeDocumentBranch(List<JSONDocument> list, TreeItem<String> parent) {
         Node<JSONDocument> current = list.getHead();
         while (current != null) {
             TreeDocumentNode item = new TreeDocumentNode(current.getValue(), current.getValue().getStore());
@@ -392,7 +392,7 @@ public class Controller {
         }
     }
 
-    public void makeInstanceBranch(List<JSONInstance> list, TreeItem<String> parent) {
+    private void makeInstanceBranch(List<JSONInstance> list, TreeItem<String> parent) {
         Node<JSONInstance> current = list.getHead();
         parent.setExpanded(true);
         while (current != null) {

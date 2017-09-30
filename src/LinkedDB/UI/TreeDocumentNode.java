@@ -34,7 +34,7 @@ public class TreeDocumentNode extends TreeAbstractNode {
     private JSONDocument document;
     private JSONStore store;
 
-    public TreeDocumentNode(JSONDocument document, String store) {
+    TreeDocumentNode(JSONDocument document, String store) {
         this.setValue(document.getName());
         this.document = document;
         this.store = ListUI.findStore(store);

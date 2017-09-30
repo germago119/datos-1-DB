@@ -23,7 +23,7 @@ public class TreeStoreNode extends TreeAbstractNode {
 
     private JSONStore store;
 
-    public TreeStoreNode(String name) {
+    TreeStoreNode(String name) {
         this.setValue(name);
         this.store = ListUI.findStore(name);
     }

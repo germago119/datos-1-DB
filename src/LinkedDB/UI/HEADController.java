@@ -18,11 +18,11 @@ public class HEADController {
         controller.loadTree();
     }
 
-    public static void loadTable(JSONDocument document, ObservableList<JSONInstance> elements) {
+    static void loadTable(JSONDocument document, ObservableList<JSONInstance> elements) {
         controller.loadTable(document, elements);
     }
 
-    public static void setDataLabel(String data) {
+    static void setDataLabel(String data) {
         controller.setDataLabel(data);
     }
 

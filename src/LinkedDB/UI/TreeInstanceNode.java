@@ -21,7 +21,7 @@ public class TreeInstanceNode extends TreeAbstractNode {
     private String instance;
 
 
-    public TreeInstanceNode(String storeName, String documentName, String instanceName) {
+    TreeInstanceNode(String storeName, String documentName, String instanceName) {
         this.setValue(instanceName);
         instance = instanceName;
         store = ListUI.findStore(storeName);
