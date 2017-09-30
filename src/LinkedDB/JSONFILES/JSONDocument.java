@@ -1,6 +1,6 @@
 package LinkedDB.JSONFILES;
 
-import LinkedDB.ListMain.ListMain;
+import LinkedDB.ListMain.ListUI;
 import LinkedDB.Lists.List;
 import LinkedDB.Lists.ListSimple;
 import LinkedDB.Lists.Node;
@@ -23,13 +23,13 @@ public class JSONDocument implements Comparable<JSONDocument> {
 
     private String name;
     private String store;
-    private ListSimple<Metadata> atributes;
+    private ListSimple<Metadata> attributes;
     private ListSimple<JSONInstance> instances;
     private ListSimple<String> references = new ListSimple<>("REFERENCES");
 
     public JSONDocument(String name) {
         this.name = name;
-        this.atributes = new ListSimple<>("Atributes");
+        this.attributes = new ListSimple<>("Atributes");
         this.instances = new ListSimple<>("Instances");
     }
 
@@ -38,15 +38,15 @@ public class JSONDocument implements Comparable<JSONDocument> {
     }
 
     public void addAtributes(Metadata data) {
-        this.atributes.append(data);
+        this.attributes.append(data);
     }
 
-    public List<Metadata> getAtributes() {
-        return this.atributes;
+    public List<Metadata> getAttributes() {
+        return this.attributes;
     }
 
-    public void setAtributes(ListSimple<Metadata> atributes) {
-        this.atributes = atributes;
+    public void setAttributes(ListSimple<Metadata> attributes) {
+        this.attributes = attributes;
     }
 
     public void setAtributes(boolean primary, String data, String dataType, boolean required, String defaultValue,
@@ -80,7 +80,7 @@ public class JSONDocument implements Comparable<JSONDocument> {
     }
 
     public Metadata findPrimary() {
-        Node<Metadata> currentNode = atributes.getHead();
+        Node<Metadata> currentNode = attributes.getHead();
         while (currentNode != null) {
             Metadata currentData = currentNode.getValue();
             if (currentData.getPrimary()) {
@@ -109,8 +109,8 @@ public class JSONDocument implements Comparable<JSONDocument> {
     }
 
     @SuppressWarnings("unchecked")
-    public void writeAtributesToFile(File file) {
-        Node<Metadata> temp = this.atributes.getHead();
+    public void writeAttributesToFile(File file) {
+        Node<Metadata> temp = this.attributes.getHead();
         JSONObject jsonObject = new JSONObject();
         while (temp != null) {
             Metadata tempData = temp.getValue();
@@ -128,7 +128,7 @@ public class JSONDocument implements Comparable<JSONDocument> {
             writer.write(jsonObject.toJSONString());
             writer.close();
         } catch (IOException exception) {
-            System.out.println("ERROR JSONDocument - writeAtributesToFile");
+            System.out.println("ERROR JSONDocument - writeAttributesToFile");
         }
     }
 
@@ -186,7 +186,7 @@ public class JSONDocument implements Comparable<JSONDocument> {
         return deleted;
     }
 
-    public ObservableList<JSONInstance> searchByAtribute(String value, String atribute) {
+    public ObservableList<JSONInstance> searchByAttribute(String value, String atribute) {
         Node<JSONInstance> instance = instances.getHead();
         ObservableList<JSONInstance> result = FXCollections.observableArrayList();
 
@@ -216,8 +216,8 @@ public class JSONDocument implements Comparable<JSONDocument> {
         references.append(reference);
     }
 
-    public Metadata findAtribute(String atribute) {
-        Node<Metadata> currentAtribute = atributes.getHead();
+    public Metadata findAttribute(String atribute) {
+        Node<Metadata> currentAtribute = attributes.getHead();
         while (currentAtribute != null) {
             if (currentAtribute.getValue().getData().equals(atribute)) {
                 return currentAtribute.getValue();
@@ -227,7 +227,7 @@ public class JSONDocument implements Comparable<JSONDocument> {
         return null;
     }
 
-    public void readAtributes(File document) {
+    public void readAttributes(File document) {
         try (JsonReader fileReader = new JsonReader(new FileReader(document))) {
             JsonToken token;
             fileReader.beginObject();
@@ -265,7 +265,7 @@ public class JSONDocument implements Comparable<JSONDocument> {
                             addAtributes(data);
                         }
                     } catch (Exception exception) {
-                        System.out.println("ERROR JsonDocument - readAtributes");
+                        System.out.println("ERROR JsonDocument - readAttributes");
                     }
                 } else {
                     fileReader.skipValue();
@@ -273,7 +273,7 @@ public class JSONDocument implements Comparable<JSONDocument> {
             }
             fileReader.close();
         } catch (IOException exception) {
-            System.out.println("ERROR JsonDocument - readAtributes");
+            System.out.println("ERROR JsonDocument - readAttributes");
         }
     }
 
@@ -281,7 +281,7 @@ public class JSONDocument implements Comparable<JSONDocument> {
         Node<String> reference = references.getHead();
         while (reference != null) {
             String[] foreign = reference.getValue().split("/");
-            if (ListMain.findDocument(foreign[1], foreign[0]) == null) {
+            if (ListUI.findDocument(foreign[1], foreign[0]) == null) {
                 references.delete(reference.getValue());
             }
             reference = reference.getNext();
@@ -295,7 +295,7 @@ public class JSONDocument implements Comparable<JSONDocument> {
 
     }
 
-    public void updateAtribute(String updateAtribute, String newValue, String lookAtribute, String lookValue) {
+    public void updateAttribute(String updateAtribute, String newValue, String lookAtribute, String lookValue) {
         if (findPrimary().getData().equals(updateAtribute)) {
             Alert invalidPath = new Alert(AlertType.ERROR);
             invalidPath.setTitle("ERROR");
@@ -311,16 +311,16 @@ public class JSONDocument implements Comparable<JSONDocument> {
         }
     }
 
-    public ListSimple<String> getAtributesNames() {
-        Node<Metadata> metaData = atributes.getHead();
-        ListSimple<String> atribute = new ListSimple<>("Atributes");
+    public ListSimple<String> getAttributesNames() {
+        Node<Metadata> metaData = attributes.getHead();
+        ListSimple<String> attribute = new ListSimple<>("Atributes");
 
         while (metaData != null) {
-            atribute.append(metaData.getValue().getData());
+            attribute.append(metaData.getValue().getData());
             metaData = metaData.getNext();
         }
 
-        return atribute;
+        return attribute;
     }
 
     public boolean hasReferences() {

@@ -8,12 +8,14 @@ import java.nio.file.Paths;
 
 public class Files {
 
+    public static String basicpath = "/Users/roger/Desktop/LinkedDB.txt/";
+
     @Nullable
     public static String readPath() {
         Path currentRelativePath = Paths.get("");
         String currentPath = currentRelativePath.toAbsolutePath().toString();
         String finalPath = currentPath + "LinkedDB.txt";
-        File file = new File(finalPath);
+        File file = new File(basicpath);
         try (BufferedReader reader = new BufferedReader(new FileReader(file));) {
             String path = reader.readLine();
             reader.close();

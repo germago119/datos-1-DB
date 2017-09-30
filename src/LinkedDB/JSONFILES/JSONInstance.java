@@ -1,6 +1,6 @@
 package LinkedDB.JSONFILES;
 
-import LinkedDB.ListMain.ListMain;
+import LinkedDB.ListMain.ListUI;
 import LinkedDB.Lists.ListSimple;
 import LinkedDB.Lists.Node;
 import com.google.gson.stream.JsonReader;
@@ -146,7 +146,7 @@ public class JSONInstance implements Comparable<JSONInstance> {
         Node<String> current = references.getHead();
         while (current != null) {
             String[] foreign = current.getValue().split("/");
-            if (ListMain.findInstance(foreign[2], foreign[1], foreign[0]) == null) {
+            if (ListUI.findInstance(foreign[2], foreign[1], foreign[0]) == null) {
                 references.delete(current.getValue());
             }
             current = current.getNext();

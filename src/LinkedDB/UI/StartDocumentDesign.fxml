@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefWidth="500.0" style="-fx-background-color: ffffff;"
+            xmlns="http://javafx.com/javafx/8.0.111" fx:controller="LinkedDB.UI.DocumentDesignController">
+    <top>
+        <HBox prefHeight="120.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Region HBox.hgrow="ALWAYS"/>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <HBox prefHeight="100.0">
+                            <children>
+                                <Region prefHeight="200.0" prefWidth="200.0"/>
+                                <ImageView fitHeight="100.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@PNG/Logo.png"/>
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </ImageView>
+                                <Region prefHeight="200.0" prefWidth="200.0"/>
+                            </children>
+                        </HBox>
+                        <Label prefHeight="100.0" text="Please set the parameters of the new Document"
+                               textAlignment="CENTER" wrapText="true">
+                            <font>
+                                <Font name="Roboto Slab Regular" size="15.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="5.0"/>
+            </BorderPane.margin>
+        </HBox>
+    </top>
+    <left>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <Region VBox.vgrow="ALWAYS"/>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@PNG/addAttribues256.png"/>
+                    </image>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </ImageView>
+                <Region VBox.vgrow="ALWAYS"/>
+                <Region layoutX="10.0" layoutY="270.0" VBox.vgrow="ALWAYS"/>
+                <Region layoutX="10.0" layoutY="233.0" VBox.vgrow="ALWAYS"/>
+                <Region layoutX="10.0" layoutY="270.0" VBox.vgrow="ALWAYS"/>
+                <Region layoutX="10.0" layoutY="248.0" VBox.vgrow="ALWAYS"/>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </left>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+    <center>
+        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox prefHeight="200.0" prefWidth="250.0">
+                    <children>
+                        <JFXCheckBox fx:id="primaryKeyCheckBox" text="Primary Key">
+                            <font>
+                                <Font name="Roboto Slab Regular" size="14.0"/>
+                            </font>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                        </JFXCheckBox>
+                        <JFXTextField fx:id="storeName" labelFloat="true" promptText="Store's Name">
+                            <font>
+                                <Font name="Roboto Slab Regular" size="14.0"/>
+                            </font>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="documentName" labelFloat="true" promptText="Document's Name">
+                            <font>
+                                <Font name="Roboto Slab Regular" size="14.0"/>
+                            </font>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="attributeName" labelFloat="true" promptText="Attribute's Name">
+                            <font>
+                                <Font name="Roboto Slab Regular" size="14.0"/>
+                            </font>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                        </JFXTextField>
+                        <ChoiceBox fx:id="typeChoiceBox" prefWidth="160.0" style="-fx-background-color: #ffffff;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                        </ChoiceBox>
+                        <JFXRadioButton fx:id="requiredCheck" onAction="#enableDefaultValue" text="Requiered">
+                            <font>
+                                <Font name="Roboto Slab Regular" size="14.0"/>
+                            </font>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                        </JFXRadioButton>
+                        <JFXTextField fx:id="defaultValue" disable="true" labelFloat="true" promptText="Default Value">
+                            <font>
+                                <Font name="Roboto Slab Regular" size="14.0"/>
+                            </font>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                        </JFXTextField>
+                        <JFXRadioButton fx:id="foreignCheck" layoutX="10.0" layoutY="132.0"
+                                        onAction="#enableForeignData" text="Foreign Key">
+                            <font>
+                                <Font name="Roboto Slab Regular" size="14.0"/>
+                            </font>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                        </JFXRadioButton>
+                        <JFXTextField fx:id="foreignStore" disable="true" labelFloat="true" promptText="Foreign Store">
+                            <font>
+                                <Font name="Roboto Slab Regular" size="14.0"/>
+                            </font>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="foreignDocument" disable="true" labelFloat="true" layoutX="10.0"
+                                      layoutY="191.0" promptText="Foreign Document">
+                            <font>
+                                <Font name="Roboto Slab Regular" size="14.0"/>
+                            </font>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                        </JFXTextField>
+                        <HBox>
+                            <children>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <JFXButton fx:id="createAttributeButton" buttonType="RAISED" onAction="#createAttribute"
+                                           ripplerFill="BLACK" style="-fx-background-color: #1faa00;" text="Create"
+                                           textFill="WHITE">
+                                    <font>
+                                        <Font name="Roboto Slab Bold" size="15.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets top="10.0"/>
+                                    </HBox.margin>
+                                </JFXButton>
+                                <Region layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS"/>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+                <Region layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS"/>
+            </children>
+            <padding>
+                <Insets left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </HBox>
+    </center>
+</BorderPane>

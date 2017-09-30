@@ -34,7 +34,7 @@ public class DocumentWriter {
             File docData = Files.generateFile(metaDataPath, currentDoc.getValue().getName());
             File docInstances = Files.generateFile(instancesPath, currentDoc.getValue().getName());
             currentDoc.getValue().writeInstanceToFile(docInstances);
-            currentDoc.getValue().writeAtributesToFile(docData);
+            currentDoc.getValue().writeAttributesToFile(docData);
             currentDoc = currentDoc.getNext();
         }
     }

@@ -38,7 +38,7 @@ public class DocumentReader {
                     JSONDocument document = new JSONDocument(docName);
                     document.setStore(store.getName());
                     store.appendDocument(document);
-                    document.readAtributes(aDocumentStructure);
+                    document.readAttributes(aDocumentStructure);
 
                 }
 

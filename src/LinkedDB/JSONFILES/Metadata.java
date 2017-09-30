@@ -114,7 +114,7 @@ public class Metadata implements Comparable<Metadata> {
         return object;
     }
 
-    public void readAtributeJSON(File document) {
+    public void readAttributeJSON(File document) {
         try (JsonReader fileReader = new JsonReader(new FileReader(document))) {
             JsonToken token;
             fileReader.beginObject();
@@ -138,7 +138,7 @@ public class Metadata implements Comparable<Metadata> {
                         fileReader.endArray();
 
                     } catch (Exception exception) {
-                        System.out.println("ERROR Metadata - readAtributeJSON BADStructure");
+                        System.out.println("ERROR Metadata - readAttributeJSON BADStructure");
                     }
                 } else {
                     fileReader.skipValue();
@@ -146,9 +146,9 @@ public class Metadata implements Comparable<Metadata> {
                 fileReader.close();
             }
         } catch (FileNotFoundException exception) {
-            System.out.println("ERROR Metadata - readAtributeJSON 404");
+            System.out.println("ERROR Metadata - readAttributeJSON 404");
         } catch (IOException exception) {
-            System.out.println("ERROR Metadata - readAtributeJSON");
+            System.out.println("ERROR Metadata - readAttributeJSON");
         }
 
     }

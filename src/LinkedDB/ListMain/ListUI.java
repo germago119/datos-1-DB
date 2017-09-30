@@ -14,19 +14,19 @@ import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class ListMain {
+public class ListUI {
 
     private static ListCircular<JSONStore> listUI;
     private static String path;
     private static String mainPath;
 
-    private ListMain() {
+    private ListUI() {
 
     }
 
     public static List<JSONStore> getListUI() {
         if (listUI == null) {
-            listUI = new ListCircular<>("ListMain");
+            listUI = new ListCircular<>("ListUI");
         }
         return listUI;
     }
@@ -122,7 +122,7 @@ public class ListMain {
     }
 
     public static void setPath(String path) {
-        ListMain.path = path;
+        ListUI.path = path;
     }
 
     @Contract(pure = true)
